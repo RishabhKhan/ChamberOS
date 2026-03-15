@@ -72,7 +72,7 @@ export default function Research({ analyses, onAddAnalysis, onDeleteAnalysis }: 
       let assistantResponse = '';
 
       if (selectedModel === 'gemini') {
-        const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
+        const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY || '' });
         const model = 'gemini-1.5-flash';
         
         const context = analyses.length > 0 
@@ -152,7 +152,7 @@ export default function Research({ analyses, onAddAnalysis, onDeleteAnalysis }: 
       const base64Data = await fileDataPromise;
       setUploadProgress(30);
 
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
+      const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY || '' });
       const model = 'gemini-1.5-flash';
       
       setUploadProgress(50);
