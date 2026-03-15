@@ -447,7 +447,7 @@ export default function Cases({ userId, cases, userName }: CasesProps) {
                     {c.nextDate ? (
                       <div className="flex items-center gap-2 text-sm text-slate-600">
                         <Calendar size={14} className="text-legal-navy" />
-                        {c.nextDate ? new Date(c.nextDate).toLocaleDateString() : "—"}
+                        {new Date(c.nextDate).toLocaleDateString()}
                       </div>
                     ) : (
                       <span className="text-xs text-slate-400 italic">Not scheduled</span>
