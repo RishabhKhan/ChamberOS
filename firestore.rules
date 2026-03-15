@@ -1,0 +1,75 @@
+export interface Client {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  fileCode: string; // The "File Code" or Case Reference
+  address?: string;
+  status: 'active' | 'inactive';
+}
+
+export interface Email {
+  id: string;
+  subject: string;
+  sender: string;
+  recipient: string;
+  content: string;
+  timestamp: number;
+  isRead: boolean;
+  type: 'inbox' | 'sent';
+}
+
+export interface Transaction {
+  id: string;
+  date: string;
+  description: string;
+  amount: number;
+  type: 'income' | 'expense';
+  category: string;
+  client?: string;
+}
+
+export interface Invoice {
+  id: string;
+  clientName: string;
+  amount: number;
+  status: 'paid' | 'pending' | 'overdue';
+  dueDate: string;
+  issueDate: string;
+}
+
+export interface Appointment {
+  id: string;
+  title: string;
+  date: string;
+  time: string;
+  client: string;
+  type: 'consultation' | 'hearing' | 'meeting';
+  location?: string;
+}
+
+export interface DocumentAnalysis {
+  id: string;
+  fileName: string;
+  fileSize: string;
+  uploadDate: string;
+  summary: string;
+  keyPoints: string[];
+  risks: string[];
+  recommendations: string[];
+  status: 'processing' | 'completed' | 'failed';
+}
+
+export interface Case {
+  id: string;
+  caseNumber: string;
+  courtName: string;
+  caseType?: string;
+  clientName: string;
+  petitioner: string;
+  respondent: string;
+  nextDate?: string;
+  lastOrder?: string;
+  status?: string;
+  lastUpdated?: number;
+}

@@ -1,0 +1,43 @@
+/**
+ * Simple localStorage-based caching utility with TTL
+ */
+
+interface CacheItem<T> {
+  data: T;
+  expiry: number;
+}
+
+export const setCache = <T>(key: string, data: T, ttlMinutes: number = 60): void => {
+  const expiry = Date.now() + ttlMinutes * 60 * 1000;
+  const item: CacheItem<T> = { data, expiry };
+  localStorage.setItem(`legal_chamber_cache_${key}`, JSON.stringify(item));
+};
+
+export const getCache = <T>(key: string): T | null => {
+  const itemStr = localStorage.getItem(`legal_chamber_cache_${key}`);
+  if (!itemStr) return null;
+
+  try {
+    const item: CacheItem<T> = JSON.parse(itemStr);
+    if (Date.now() > item.expiry) {
+      localStorage.removeItem(`legal_chamber_cache_${key}`);
+      return null;
+    }
+    return item.data;
+  } catch (error) {
+    localStorage.removeItem(`legal_chamber_cache_${key}`);
+    return null;
+  }
+};
+
+export const clearCache = (key?: string): void => {
+  if (key) {
+    localStorage.removeItem(`legal_chamber_cache_${key}`);
+  } else {
+    Object.keys(localStorage).forEach(k => {
+      if (k.startsWith('legal_chamber_cache_')) {
+        localStorage.removeItem(k);
+      }
+    });
+  }
+};
