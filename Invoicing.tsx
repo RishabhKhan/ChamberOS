@@ -5,11 +5,11 @@ import {
   ChevronRight, Hash, BookOpen, Scale, Building2, Key
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Case } from '../types';
+import { Case } from './types';
 import {
   HighCourt, DistrictCourt, SupremeCourt,
   checkApiKeyConfigured, CaseDetail, SearchResult
-} from '../services/ecourtApiService';
+} from './ecourtApiService';
 
 const ECOURTS_LINKS = [
   {

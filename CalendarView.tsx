@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Email } from '../types';
+import { Email } from './types';
 import { 
   Inbox, Send, Trash2, Search, Star, Archive, 
   MoreVertical, Reply, Forward, Paperclip, RefreshCw, AlertCircle, Plus, Loader2
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { getGmailMessages, GmailMessage } from '../services/googleService';
+import { getGmailMessages, GmailMessage } from './types';
 
 interface EmailCenterProps {
   emails: Email[];

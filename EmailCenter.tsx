@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Scale } from 'lucide-react';
 import { motion } from 'motion/react';
-import { auth, googleProvider, signInWithPopup } from '../firebase';
+import { auth, googleProvider, signInWithPopup } from './ecourtApiService';
 
 export default function Login() {
   const [loading, setLoading] = useState(false);

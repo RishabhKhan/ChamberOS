@@ -1,17 +1,12 @@
-import { GoogleGenAI } from "@google/genai";
-
-async function getInfo() {
-  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-  const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
-    contents: "Tell me about Rishabh Ahmad Khan, an advocate at Calcutta High Court. Provide professional details if available.",
-    config: {
-      tools: [{ googleSearch: {} }],
-    },
-  });
-
-  console.log(response.text);
-  console.log(JSON.stringify(response.candidates?.[0]?.groundingMetadata?.groundingChunks));
-}
-
-getInfo();
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Achilles Chamber OS</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/main.tsx"></script>
+  </body>
+</html>

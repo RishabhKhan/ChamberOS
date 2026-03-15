@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Transaction } from '../types';
+import { Transaction } from './types';
 import { Plus, Search, Filter, Download, ArrowUpRight, ArrowDownLeft, Calendar, Tag, User } from 'lucide-react';
 
 interface AccountingProps {

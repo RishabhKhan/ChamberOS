@@ -5,10 +5,10 @@ import {
   FileCode, Loader2, AlertCircle, HardDrive
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { getGoogleDriveFiles, GoogleDriveFile, uploadToGoogleDrive, getGoogleDriveFileContent, deleteGoogleDriveFile } from '../services/googleService';
+import { getGoogleDriveFiles, GoogleDriveFile, uploadToGoogleDrive, getGoogleDriveFileContent, deleteGoogleDriveFile } from './types';
 import { GoogleGenAI, Type } from "@google/genai";
-import { DocumentAnalysis as AnalysisType } from '../types';
-import { useModal } from '../context/ModalContext';
+import { DocumentAnalysis as AnalysisType } from './types';
+import { useModal } from './googleService';
 
 interface DocumentsProps {
   isGoogleConnected: boolean;

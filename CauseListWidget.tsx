@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, X, User, FileText, Mail, ChevronRight, Command, FileSearch, Gavel } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Client, Invoice, Email, DocumentAnalysis, Case } from '../types';
+import { Client, Invoice, Email, DocumentAnalysis, Case } from './types';
 
 interface GlobalSearchProps {
   isOpen: boolean;

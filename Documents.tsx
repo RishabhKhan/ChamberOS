@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
-import { Appointment } from '../types';
+import { Appointment } from './types';
 import { Clock, MapPin, User, Plus, ChevronRight, ChevronLeft, Calendar as CalendarIcon, Loader2, RefreshCw, Trash2 } from 'lucide-react';
 import { format, isSameDay } from 'date-fns';
-import { getGoogleCalendarEvents, GoogleEvent, createGoogleCalendarEvent } from '../services/googleService';
-import { useModal } from '../context/ModalContext';
+import { getGoogleCalendarEvents, GoogleEvent, createGoogleCalendarEvent } from './types';
+import { useModal } from './googleService';
 
 interface CalendarViewProps {
   appointments: Appointment[];

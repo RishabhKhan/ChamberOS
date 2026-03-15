@@ -1,5 +1,11 @@
 import React from 'react';
-import { Invoice } from '../types';
+import { Invoice } from './types';
+
+export function openWhatsApp(phone: string, message: string): void {
+  const cleaned = phone.replace(/\D/g, '');
+  const url = `https://wa.me/${cleaned}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank', 'noopener,noreferrer');
+}
 
 interface InvoiceTemplateProps {
   invoice: Invoice;

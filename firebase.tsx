@@ -5,14 +5,14 @@ import {
   Filter, Download, Trash2, X, Activity
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Case } from '../types';
-import { db, handleFirestoreError, OperationType } from '../firebase';
+import { Case } from './types';
+import { db, handleFirestoreError, OperationType } from './ecourtApiService';
 import { 
   collection, onSnapshot, query, where, addDoc, 
   updateDoc, deleteDoc, doc 
 } from 'firebase/firestore';
-import { fetchCaseStatus, detectTodayListedCases, ListedCase } from '../services/ecourtService';
-import { useModal } from '../context/ModalContext';
+import { fetchCaseStatus, detectTodayListedCases, ListedCase } from './ecourtService';
+import { useModal } from './googleService';
 
 interface CasesProps {
   userId: string;
