@@ -97,21 +97,28 @@ export default function Documents({ isGoogleConnected, onAddAnalysis }: Document
     );
   };
 
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file || !isGoogleConnected) return;
     setIsUploading(true);
-    try {
-      const reader = new FileReader();
-      reader.onload = async (event) => {
+    const reader = new FileReader();
+    reader.onload = async (event) => {
+      try {
         const content = event.target?.result as string;
         const { unauthorized } = await uploadToGoogleDrive(file.name, content);
         if (unauthorized) { setError('Google session expired. Please reconnect.'); }
         else { await fetchFiles(); }
-      };
-      reader.readAsText(file);
-    } catch { setError('Failed to upload file to Google Drive.'); }
-    finally { setIsUploading(false); }
+      } catch {
+        setError('Failed to upload file to Google Drive.');
+      } finally {
+        setIsUploading(false);
+      }
+    };
+    reader.onerror = () => {
+      setError('Failed to read file.');
+      setIsUploading(false);
+    };
+    reader.readAsText(file);
   };
 
   useEffect(() => {
@@ -119,27 +126,6 @@ export default function Documents({ isGoogleConnected, onAddAnalysis }: Document
       fetchFiles();
     }
   }, [isGoogleConnected]);
-
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file || !isGoogleConnected) return;
-
-    setIsUploading(true);
-    try {
-      const reader = new FileReader();
-      reader.onload = async (event) => {
-        const content = event.target?.result as string;
-        await uploadToGoogleDrive(file.name, content);
-        await fetchFiles();
-      };
-      reader.readAsText(file);
-    } catch (err) {
-      console.error('Upload failed:', err);
-      setError('Failed to upload file to Google Drive.');
-    } finally {
-      setIsUploading(false);
-    }
-  };
 
   const filteredFiles = files.filter(f => 
     f.name.toLowerCase().includes(searchTerm.toLowerCase())

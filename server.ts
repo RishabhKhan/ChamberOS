@@ -97,6 +97,7 @@ export default function App() {
     checkStatus();
 
     const handleMessage = (event: MessageEvent) => {
+      if (event.origin !== window.location.origin) return;
       if (event.data?.type === 'OAUTH_AUTH_SUCCESS') {
         setIsGoogleConnected(true);
       }
