@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Client } from '../types';
+import { Client } from './types';
 import { Plus, Search, User, Mail, Phone, Hash, MapPin, MoreVertical, Edit2, Trash2, ExternalLink, MessageCircle, Users } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { openWhatsApp } from '../services/whatsappService';
-import { useModal } from '../context/ModalContext';
+import { openWhatsApp } from './whatsappService';
+import { useModal } from './googleService';
 
 interface ClientsProps {
   clients: Client[];

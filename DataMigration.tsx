@@ -1,5 +1,5 @@
 import React from 'react';
-import { Transaction, Invoice, Appointment, Case, DocumentAnalysis } from '../types';
+import { Transaction, Invoice, Appointment, Case, DocumentAnalysis } from './types';
 import {
   Calendar, FileText, AlertCircle, Gavel, Users, Plus,
   ChevronRight, Sparkles, CheckCircle2, Activity, Wallet,

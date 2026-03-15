@@ -1,18 +1,10 @@
-export function getWhatsAppLink(phoneNumber: string, message: string = ''): string {
-  // Remove non-numeric characters from phone number
-  const cleanNumber = phoneNumber.replace(/\D/g, '');
-  
-  // Ensure it has a country code (default to 91 for India if not present and length is 10)
-  let finalNumber = cleanNumber;
-  if (cleanNumber.length === 10) {
-    finalNumber = `91${cleanNumber}`;
-  }
-  
-  const encodedMessage = encodeURIComponent(message);
-  return `https://wa.me/${finalNumber}${message ? `?text=${encodedMessage}` : ''}`;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-export function openWhatsApp(phoneNumber: string, message: string = '') {
-  const link = getWhatsAppLink(phoneNumber, message);
-  window.open(link, '_blank');
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

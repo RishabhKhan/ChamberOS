@@ -7,9 +7,9 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { GoogleGenAI } from '@google/genai';
-import { DocumentAnalysis as AnalysisType } from '../types';
-import { getCache, setCache, clearCache } from '../utils/cache';
-import { useModal } from '../context/ModalContext';
+import { DocumentAnalysis as AnalysisType } from './types';
+import { getCache, setCache, clearCache } from './cache';
+import { useModal } from './googleService';
 
 interface Message {
   id: string;

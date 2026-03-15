@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import Papa from 'papaparse';
-import { Client, Transaction, Invoice, Appointment, Case } from '../types';
+import { Client, Transaction, Invoice, Appointment, Case } from './types';
 
 interface DataMigrationProps {
   onImportClients: (clients: Omit<Client, 'id'>[]) => void;

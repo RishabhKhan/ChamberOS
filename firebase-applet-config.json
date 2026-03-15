@@ -1,8 +1,9 @@
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if request.auth != null;
-    }
-  }
+{
+  "apiKey": "REPLACE_WITH_YOUR_FIREBASE_API_KEY",
+  "authDomain": "REPLACE_WITH_YOUR_PROJECT.firebaseapp.com",
+  "projectId": "REPLACE_WITH_YOUR_PROJECT_ID",
+  "storageBucket": "REPLACE_WITH_YOUR_PROJECT.appspot.com",
+  "messagingSenderId": "REPLACE_WITH_YOUR_SENDER_ID",
+  "appId": "REPLACE_WITH_YOUR_APP_ID",
+  "firestoreDatabaseId": "(default)"
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Invoice, Client } from '../types';
+import { Invoice, Client } from './types';
 import { 
   Plus, Search, FileText, Download, Send, CheckCircle, 
   Clock, AlertTriangle, MoreVertical, Filter, Printer, Mail,
@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import InvoiceTemplate from './InvoiceTemplate';
-import { useModal } from '../context/ModalContext';
+import { useModal } from './googleService';
 
 interface InvoicingProps {
   invoices: Invoice[];
@@ -62,9 +62,6 @@ export default function Invoicing({ invoices, clients, onAddInvoice, onUpdateSta
     a.click();
     URL.revokeObjectURL(url);
   };
-    const matchesStatus = filterStatus === 'all' || i.status === filterStatus;
-    return matchesSearch && matchesStatus;
-  });
 
   const getStatusColor = (status: Invoice['status']) => {
     switch (status) {
